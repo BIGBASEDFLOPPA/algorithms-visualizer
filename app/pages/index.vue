@@ -1,15 +1,18 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
 
-import BaseBtn from "../components/ui/BaseBtn.vue";
 import {algorithms} from "../algorithms";
 
 const { generate } = useBars()
-const { startSorting, stopSorting, restartSorting, isSorting, finished, stopRequested } = useSorting()
+const { startSorting, stopSorting, restartSorting, resetSorting, isSorting, finished, stopRequested } = useSorting()
 
 const activeAlgorithm = ref(algorithms[0])
 
 onMounted(() => generate(10))
+
+// Следим за изменением алгоритма
+watch(activeAlgorithm, () => {
+  resetSorting()
+})
 
 function handleStart() {
   startSorting(activeAlgorithm.value, finished.value)

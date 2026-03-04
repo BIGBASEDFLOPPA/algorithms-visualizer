@@ -16,6 +16,21 @@ export function useSorting() {
     let currentStepIndex = 0
     let currentAlgorithm: AlgorithmDefinition | null = null
 
+    function resetSorting() {
+        if (isSorting.value) {
+            stopRequested.value = true
+            isSorting.value = false
+        }
+
+        bars.value = [...initialBars.value]
+        steps = null
+        currentStepIndex = 0
+        currentAlgorithm = null
+        finished.value = false
+        stopRequested.value = false
+        activeIndexes.value = []
+    }
+
     async function startSorting(algorithm: AlgorithmDefinition, reset = false) {
         if (isSorting.value) return
 
@@ -121,6 +136,7 @@ export function useSorting() {
         startSorting,
         stopSorting,
         restartSorting,
+        resetSorting,
         isSorting,
         finished,
         stopRequested

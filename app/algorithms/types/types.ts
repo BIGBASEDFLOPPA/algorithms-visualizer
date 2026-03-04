@@ -1,10 +1,11 @@
-export type SortStep =
-    | { type: 'compare'; indexes: [number, number] }
-    | { type: 'swap'; indexes: [number, number] }
+export interface Step {
+    indexes: number[]
+    type: 'compare' | 'swap'
+}
 
-export type AlgorithmDefinition = {
-    name: string
+export interface AlgorithmDefinition {
     key: string
+    name: string
     description: string
-    generator: (array: number[]) => SortStep[]
+    generator: (arr: number[]) => Generator<Step>
 }
