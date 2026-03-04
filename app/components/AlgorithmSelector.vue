@@ -62,7 +62,7 @@ function selectAlgorithm(algo: AlgorithmDefinition) {
   color: #cccccc;
   cursor: pointer;
   transition: 0.2s;
-  font-size: 14px;
+  font-size: 10px;
 }
 
 .algorithm-selector__btn:hover {

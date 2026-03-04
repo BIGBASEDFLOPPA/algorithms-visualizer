@@ -52,7 +52,6 @@ function handleClick() {
 
 .base-btn--disabled {
   opacity: 0.5;
-  cursor: not-allowed;
 }
 
 .base-btn--active {
@@ -69,7 +68,6 @@ function handleClick() {
 }
 
 .base-btn--restart .restart-icon {
-  font-size: 18px;
   display: inline-block;
   transition: transform 0.3s;
 }
