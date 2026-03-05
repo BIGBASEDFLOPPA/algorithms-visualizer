@@ -2,6 +2,7 @@
 import type { PropType } from 'vue'
 import type {AlgorithmDefinition} from "../algorithms/types/types";
 import {algorithms} from "../algorithms";
+import BaseBtn from "./ui/BaseBtn.vue";
 
 
 const props = defineProps({
@@ -22,17 +23,18 @@ function selectAlgorithm(algo: AlgorithmDefinition) {
 
 <template>
   <div class="algorithm-selector">
-    <button
-        v-for="algo in algorithms"
-        :key="algo.key"
-        class="algorithm-selector__btn"
-        :class="{
+    <BaseBtn v-for="algo in algorithms"
+             :key="algo.key"
+             @click="selectAlgorithm(algo)"
+             class="algorithm-selector__btn"
+             size="small"
+             :class="{
         'algorithm-selector__btn--active': modelValue.key === algo.key
       }"
-        @click="selectAlgorithm(algo)"
     >
       {{ algo.name }}
-    </button>
+    </BaseBtn>
+
   </div>
 </template>
 
@@ -56,13 +58,11 @@ function selectAlgorithm(algo: AlgorithmDefinition) {
 
 .algorithm-selector__btn {
   flex: 0 0 auto;
-  padding: 8px 18px;
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.1);
   color: #cccccc;
   cursor: pointer;
   transition: 0.2s;
-  font-size: 10px;
 }
 
 .algorithm-selector__btn:hover {

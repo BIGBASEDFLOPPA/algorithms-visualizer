@@ -5,6 +5,7 @@ const props = defineProps<{
   disabled?: boolean
   active?: boolean
   variant?: 'start' | 'stop' | 'restart'
+  size?: 'small' | 'medium'
 }>()
 
 const emit = defineEmits<{
@@ -21,7 +22,9 @@ function handleClick() {
       :class="[
       'base-btn',
       `base-btn--${props.variant}`,
+       `base-btn--${props.size || 'medium'}`,
       { 'base-btn--disabled': props.disabled, 'base-btn--active': props.active }
+
     ]"
       @click="handleClick"
       :disabled="props.disabled"
@@ -74,5 +77,14 @@ function handleClick() {
 
 .base-btn--restart:hover:not(:disabled) .restart-icon {
   transform: rotate(180deg);
+}
+.base-btn--small {
+  padding: 6px 14px;
+  font-size: 12px;
+}
+
+.base-btn--medium {
+  padding: 12px 28px;
+  font-size: 14px;
 }
 </style>

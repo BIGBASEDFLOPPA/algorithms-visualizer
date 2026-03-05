@@ -7,6 +7,8 @@ export default defineNuxtConfig({
   css: ['@/assets/css/global.css'],
 
   app: {
+    baseURL: '/algorithms-visualizer/',
+    buildAssetsDir: '/assets/',
     head: {
       link: [
         {

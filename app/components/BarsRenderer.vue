@@ -43,6 +43,9 @@ function getBarColor(index: number) {
   align-items: flex-end;
   gap: 8px;
   height: 350px;
+  @media (max-width: 500px) {
+    width: 100%;
+  }
 }
 
 .bar {
