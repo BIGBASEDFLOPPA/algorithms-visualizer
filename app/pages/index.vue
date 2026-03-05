@@ -65,7 +65,7 @@ function handleRestart() {
             :disabled="isSorting || stopRequested"
             @click="handleStart"
         >
-          {{ finished ? 'Повторить' : 'Start' }}
+          {{ finished ? 'Repeat' : 'Start' }}
         </BaseBtn>
 
         <BaseBtn
@@ -74,7 +74,7 @@ function handleRestart() {
             :active="stopRequested"
             @click="handleStop"
         >
-          {{ stopRequested ? 'Продолжить' : 'Стоп' }}
+          {{ stopRequested ? 'Continue' : 'Stop' }}
         </BaseBtn>
 
         <BaseBtn
@@ -83,7 +83,7 @@ function handleRestart() {
             @click="handleRestart"
         >
           <span class="restart-icon">↻</span>
-          Рестарт
+          Restart
         </BaseBtn>
       </div>
     </div>
